@@ -25,7 +25,7 @@ int main(void){
 			cout << "内存分配失败";
 			return -1;
 		}
-		cout << "请输入第" << i + 1 << "个学生的姓名、学号。英语成绩、数学成绩:\n";
+		cout << "请输入第" << i + 1 << "个学生的姓名、学号、英语成绩、数学成绩:\n";
 		cin >> tmp->name >> tmp->num >> tmp->eGrade >> tmp->mGrade;
 		head = insertLinklist(head, tmp);
 	}
@@ -62,7 +62,7 @@ int displayLinklist(stu* tmp){
 
 stu *getAveGradeMin(stu *head){
 	stu *min = head;
-	while (head->next){
+	while (head){
 		if (min->mGrade + min->eGrade > head->eGrade + head->mGrade)
 			min = head;
 		head = head->next;
@@ -72,7 +72,7 @@ stu *getAveGradeMin(stu *head){
 
 stu *getAveGradeMax(stu *head){
 	stu *max = head;
-	while (head->next){
+	while (head){
 		if (max->mGrade + max->eGrade < head->eGrade + head->mGrade)
 			max = head;
 		head = head->next;
