@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <iostream>
 using namespace std;
 
@@ -22,6 +23,7 @@ int main(void){
 		}
 		cout << "请输入第" << i + 1 << "个元素的值:\n";
 		cin >> tmp->x;
+		tmp->next = NULL;
 		head1 = insertLinklist(head1, tmp);
 	}
 	cout << "请输入第二个链表的元素个数:";
@@ -34,6 +36,7 @@ int main(void){
 		}
 		cout << "请输入第" << i + 1 << "个元素的值:\n";
 		cin >> tmp->x;
+		tmp->next = NULL;
 		head2 = insertLinklist(head2, tmp);
 	}
 	cout << "A: ";
@@ -57,14 +60,17 @@ score* insertLinklist(score *head, score *newNode){
 }
 
 score *merge(score *a, score *b){
-	//
+	score *p1 = a, *p2 = b, *h = NULL;
 	return NULL;
 }
 
 void displayLinkList(score *head){
 	cout << head->x;
 	head = head->next;
-	while (head->next)
+	while (head){
 		cout << " -> " << head->x;
+		head = head->next;
+	}
+	cout << '\n';
 	return;
 }
