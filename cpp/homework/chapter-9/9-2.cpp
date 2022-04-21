@@ -1,4 +1,3 @@
-#include <cstddef>
 #include <iostream>
 using namespace std;
 
@@ -10,9 +9,11 @@ struct score{
 score *insertLinklist(score*, score*);
 score *merge(score *,score *);
 void displayLinkList(score *);
+void deleteLinklist(score *);
 int main(void){
 	int n1, n2;
 	score *tmp = NULL, *head1 = NULL, *head2 = NULL, *head = NULL;
+	cout << "链表输入格式：以空格分割，以回车结尾\n";
 	cout << "请输入第一个链表:";
 	do {
 		tmp = new score;
@@ -42,6 +43,7 @@ int main(void){
 	displayLinkList(head2);
 	head = merge(head1, head2);
 	displayLinkList(head);
+	deleteLinklist(head);
 	return 0;
 }
 
@@ -105,5 +107,16 @@ void displayLinkList(score *head){
 		head = head->next;
 	}
 	cout << '\n';
+	return;
+}
+
+void deleteLinklist(score *h){
+	score *t = h->next;
+	while (t){
+		delete h;
+		h = t;
+		t = t->next;
+	}
+	delete h;
 	return;
 }

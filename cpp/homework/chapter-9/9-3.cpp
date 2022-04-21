@@ -5,11 +5,14 @@ struct score{
 	int x;
 	score *next;
 };
+
 score *insertLinklist(score *, score *);
 score *removeRepeaded(score *);
 void displayLinkList(score *);
+void deleteLinklist(score *);
 int main(void){
 	score *head = NULL, *tmp = NULL;
+	cout << "链表输入格式：以空格分隔，以回车结尾\n";
 	cout << "请输入链表:";
 	do {
 		tmp = new score;
@@ -26,6 +29,7 @@ int main(void){
 	cout << "去重后:";
 	head = removeRepeaded(head);
 	displayLinkList(head);
+	deleteLinklist(head);
 	return 0;
 }
 
@@ -65,5 +69,16 @@ void displayLinkList(score *head){
 		head = head->next;
 	}
 	cout << '\n';
+	return;
+}
+
+void deleteLinklist(score *h){
+	score *t = h->next;
+	while (t){
+		delete h;
+		h = t;
+		t = t->next;
+	}
+	delete h;
 	return;
 }

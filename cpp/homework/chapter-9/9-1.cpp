@@ -13,6 +13,7 @@ stu* insertLinklist(stu *, stu *);
 int displayLinklist(stu *);
 stu *getAveGradeMin(stu *);
 stu *getAveGradeMax(stu *);
+void deleteLinklist(stu *);
 
 int main(void){
 	int n = 0;
@@ -33,6 +34,7 @@ int main(void){
 	stu *max = getAveGradeMax(head), *min = getAveGradeMin(head);
 	cout << "平均分最高的学生是" << max->name << "，学号是" << max->num << "，平均分" << 1.0 * (max->mGrade + max->eGrade) / 2 << "。\n";
 	cout << "平均分最低的学生是" << min->name << "，学号是" << min->num << "，平均分" << 1.0 * (min->mGrade + min->eGrade) / 2 << "。\n";
+	deleteLinklist(head);
 	return 0;
 }
 
@@ -80,3 +82,13 @@ stu *getAveGradeMax(stu *head){
 	return max;
 }
 
+void deleteLinklist(stu *h){
+	stu *t = h->next;
+	while (t){
+		delete h;
+		h = t;
+		t = t->next;
+	}
+	delete h;
+	return;
+}
