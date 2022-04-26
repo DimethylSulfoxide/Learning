@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Sec 1}{1}%
+\contentsline {subsection}{\numberline {1.1}SubSec 1}{1}%
+\contentsline {subsection}{\numberline {1.2}SubSec 2}{1}%
+\contentsline {section}{\numberline {2}Sec 2}{1}%
